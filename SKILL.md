@@ -99,6 +99,7 @@ Every centred text block should read as one even shape that feels complete: line
 - **Break between phrases, never inside one.** Never end a line on "a", "the", "of", "in", "your" and similar, and never split a number from the word it counts ("1,200 / subscribers"). The script penalises both.
 - **One line is complete on its own.** If a sentence fits on one line inside the safe width, keep it on one line rather than splitting it into uneven halves.
 - **A short second beat is sized to match.** When a short line appears after a longer one (a reveal, a punchline, a result), size it up so its width matches the line above: `--match "THE SHORT LINE"` prints that size. Cap it at about 1.6 times the hook size.
+- **Leave headroom on width.** The script measures the named font as it is; Palmier's `bold: true` can widen a regular weight (Futura Medium rendered about 15 percent wider). Keep the widest line under about 760 px in the script's report when bold is on, and confirm the edges on the check frame.
 - **Paragraphs balance separately.** In a two-paragraph card, balance each paragraph on its own.
 - **Only the line breaks and sizes change.** The words stay exactly as the user wrote them. If no break balances well, show the user the best two options and let them choose; never reword to make it fit.
 - Lists and left-aligned diary-style text are ragged by nature; this rule is for centred hooks, headers, closers and reveals.
