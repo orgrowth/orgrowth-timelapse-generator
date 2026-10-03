@@ -83,6 +83,14 @@ For each reel it creates the project, imports the source, locks the canvas to 10
 
 Build one reel first, show the user the check frame, and adjust size, font and position with them before building the rest.
 
+### Design rule: everything on screen from the first frame
+
+Every text block, icon and image is on screen from frame 0 to the last frame. The movement comes from the footage behind it, not from overlays popping in. Only add a line that appears later if the user asks for one.
+
+### Design rule: a graphic at the top, one block of text under it
+
+Vary the top of the frame from reel to reel instead of making every reel a wall of text: a pair of app icons with a "+" between them, a chain of three icons joined by arrows, a before-and-after pair of screenshots with an arrow, or one wide screenshot (a stats row, a dashboard). The user supplies the screenshots and logos; crop them tight around the part that matters so the numbers read at phone size, and never alter what they show. Place images with `w` and `h` matching their aspect ratio. Keep the whole graphic inside the safe zone, then put one balanced text block under it.
+
 ### Design rule: balanced, symmetrical blocks
 
 Every centred text block should read as one even shape that feels complete: lines of near equal width, never a long line with a short stub hanging under it. A two-line block is the default for a sentence too long for one line, and both lines should be about the same width.

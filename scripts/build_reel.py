@@ -91,9 +91,10 @@ def build(spec, root, checks_dir, overlay_png):
         before = {t["trackId"] for t in timeline()["tracks"]}
         m = call("import_media", {"source": {"path": os.path.join(root, img["file"])}, "folder": "Images"})
         a = call("add_clips", {"entries": [{"mediaRef": m["mediaRef"], "startFrame": 0, "endFrame": frames}]})
-        size = img.get("size", 140)
+        w = img.get("w", img.get("size", 140))  # px on the 1080x1920 canvas; size alone means a square
+        h = img.get("h", img.get("size", 140))
         call("set_clip_properties", {"clipIds": [a["clips"][0]["id"]], "transform": {
-            "centerX": img["x"], "centerY": img["y"], "width": size / 1080, "height": size / 1920}})
+            "centerX": img["x"], "centerY": img["y"], "width": w / 1080, "height": h / 1920}})
         names[newest_track(before)] = img.get("track", f"Image{i + 1}")
 
     tl = timeline()

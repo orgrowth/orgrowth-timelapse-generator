@@ -6,7 +6,9 @@
     "fontSize is in Palmier canvas points: rendered pixels on a 1080x1920 reel = fontSize x 1.78.",
     "camera.move is one of: none, pan-left, pan-right, push-in, pull-out, drift-up. camera.amount is the zoom headroom, 0.05 to 0.14.",
     "grade is optional: exposure (-3 to 3 EV), contrast (0.5 to 1.5), saturation (0 to 2), temperature (kelvin, 6500 neutral).",
-    "A text block with 'start' appears partway through (frame number at 30fps; 129 is 4.3 seconds)."
+    "A text block with 'start' appears partway through (frame number at 30fps; 129 is 4.3 seconds).",
+    "Images: 'size' places a square (icons); 'w' and 'h' in canvas pixels place any other shape, such as a screenshot card. Match w:h to the image's own aspect ratio or it stretches.",
+    "Keep every overlay on screen from frame 0 unless the user asks for a line to appear later; the movement comes from the footage."
   ],
   "reels": [
     {
@@ -14,11 +16,26 @@
       "name": "reel01 one line",
       "source": "source/reel01.mp4",
       "frames": 255,
-      "camera": {"move": "pan-right", "amount": 0.06},
-      "grade": {"exposure": 0.03, "contrast": 1.04},
+      "camera": {
+        "move": "pan-right",
+        "amount": 0.06
+      },
+      "grade": {
+        "exposure": 0.03,
+        "contrast": 1.04
+      },
       "texts": [
-        {"track": "Main", "content": "USER'S MAIN LINE", "y": 0.40,
-         "style": {"fontName": "HelveticaNeue-Bold", "bold": true, "fontSize": 25, "alignment": "center"}}
+        {
+          "track": "Main",
+          "content": "USER'S MAIN LINE",
+          "y": 0.4,
+          "style": {
+            "fontName": "HelveticaNeue-Bold",
+            "bold": true,
+            "fontSize": 25,
+            "alignment": "center"
+          }
+        }
       ]
     },
     {
@@ -26,18 +43,63 @@
       "name": "reel02 header list closer",
       "source": "source/reel02.mp4",
       "frames": 270,
-      "camera": {"move": "push-in", "amount": 0.08},
-      "grade": {"contrast": 1.05, "temperature": 6650},
+      "camera": {
+        "move": "push-in",
+        "amount": 0.08
+      },
+      "grade": {
+        "contrast": 1.05,
+        "temperature": 6650
+      },
       "texts": [
-        {"track": "Header", "content": "USER'S HEADER", "y": 0.23,
-         "style": {"fontName": "HelveticaNeue-CondensedBold", "bold": true, "fontSize": 31, "alignment": "center",
-                   "outline": {"enabled": true, "color": "#000000", "width": 3}}},
-        {"track": "List", "content": "USER'S LINE ONE\nUSER'S LINE TWO\nUSER'S LINE THREE", "y": 0.40,
-         "style": {"fontName": "HelveticaNeue-CondensedBold", "bold": true, "fontSize": 26, "alignment": "center",
-                   "outline": {"enabled": true, "color": "#000000", "width": 3}}},
-        {"track": "Closer", "content": "USER'S CLOSING LINE", "y": 0.56,
-         "style": {"fontName": "HelveticaNeue-CondensedBold", "bold": true, "fontSize": 25, "alignment": "center",
-                   "outline": {"enabled": true, "color": "#000000", "width": 3}}}
+        {
+          "track": "Header",
+          "content": "USER'S HEADER",
+          "y": 0.23,
+          "style": {
+            "fontName": "HelveticaNeue-CondensedBold",
+            "bold": true,
+            "fontSize": 31,
+            "alignment": "center",
+            "outline": {
+              "enabled": true,
+              "color": "#000000",
+              "width": 3
+            }
+          }
+        },
+        {
+          "track": "List",
+          "content": "USER'S LINE ONE\nUSER'S LINE TWO\nUSER'S LINE THREE",
+          "y": 0.4,
+          "style": {
+            "fontName": "HelveticaNeue-CondensedBold",
+            "bold": true,
+            "fontSize": 26,
+            "alignment": "center",
+            "outline": {
+              "enabled": true,
+              "color": "#000000",
+              "width": 3
+            }
+          }
+        },
+        {
+          "track": "Closer",
+          "content": "USER'S CLOSING LINE",
+          "y": 0.56,
+          "style": {
+            "fontName": "HelveticaNeue-CondensedBold",
+            "bold": true,
+            "fontSize": 25,
+            "alignment": "center",
+            "outline": {
+              "enabled": true,
+              "color": "#000000",
+              "width": 3
+            }
+          }
+        }
       ]
     },
     {
@@ -45,31 +107,96 @@
       "name": "reel03 two images and a reveal",
       "source": "source/reel03.mp4",
       "frames": 240,
-      "camera": {"move": "drift-up", "amount": 0.07},
+      "camera": {
+        "move": "drift-up",
+        "amount": 0.07
+      },
       "texts": [
-        {"track": "Plus", "content": "+", "y": 0.21, "style": {"fontName": "HelveticaNeue-Bold", "bold": true, "fontSize": 40}},
-        {"track": "Main", "content": "USER'S FIRST LINE\nUSER'S SECOND LINE", "y": 0.30,
-         "style": {"fontName": "AvenirNextCondensed-Medium", "fontSize": 28, "alignment": "center"}},
-        {"track": "Reveal", "content": "USER'S LINE THAT APPEARS LATER", "y": 0.36, "start": 129,
-         "style": {"fontName": "AvenirNextCondensed-Medium", "fontSize": 28, "alignment": "center"}}
+        {
+          "track": "Plus",
+          "content": "+",
+          "y": 0.21,
+          "style": {
+            "fontName": "HelveticaNeue-Bold",
+            "bold": true,
+            "fontSize": 40
+          }
+        },
+        {
+          "track": "Main",
+          "content": "USER'S FIRST LINE\nUSER'S SECOND LINE",
+          "y": 0.3,
+          "style": {
+            "fontName": "AvenirNextCondensed-Medium",
+            "fontSize": 28,
+            "alignment": "center"
+          }
+        },
+        {
+          "track": "Reveal",
+          "content": "USER'S LINE THAT APPEARS LATER",
+          "y": 0.36,
+          "start": 129,
+          "style": {
+            "fontName": "AvenirNextCondensed-Medium",
+            "fontSize": 28,
+            "alignment": "center"
+          }
+        }
       ],
       "images": [
-        {"track": "ImageLeft", "file": "images/left.png", "x": 0.385, "y": 0.21, "size": 140},
-        {"track": "ImageRight", "file": "images/right.png", "x": 0.615, "y": 0.21, "size": 140}
+        {
+          "track": "ImageLeft",
+          "file": "images/left.png",
+          "x": 0.385,
+          "y": 0.21,
+          "size": 140
+        },
+        {
+          "track": "ImageRight",
+          "file": "images/right.png",
+          "x": 0.615,
+          "y": 0.21,
+          "size": 140
+        }
       ],
-      "check_frames": [60, 200]
+      "check_frames": [
+        60,
+        200
+      ]
     },
     {
       "id": "reel04",
       "name": "reel04 left aligned serif",
       "source": "source/reel04.mp4",
       "frames": 282,
-      "camera": {"move": "pan-left", "amount": 0.07},
+      "camera": {
+        "move": "pan-left",
+        "amount": 0.07
+      },
       "texts": [
-        {"track": "Main", "content": "USER'S FIRST LINE\nUSER'S SECOND LINE", "x": 0.10, "y": 0.40,
-         "style": {"fontName": "Georgia", "fontSize": 22.5, "alignment": "left"}},
-        {"track": "Small", "content": "USER'S SMALL LINE", "x": 0.10, "y": 0.455,
-         "style": {"fontName": "Georgia", "fontSize": 18, "alignment": "left"}}
+        {
+          "track": "Main",
+          "content": "USER'S FIRST LINE\nUSER'S SECOND LINE",
+          "x": 0.1,
+          "y": 0.4,
+          "style": {
+            "fontName": "Georgia",
+            "fontSize": 22.5,
+            "alignment": "left"
+          }
+        },
+        {
+          "track": "Small",
+          "content": "USER'S SMALL LINE",
+          "x": 0.1,
+          "y": 0.455,
+          "style": {
+            "fontName": "Georgia",
+            "fontSize": 18,
+            "alignment": "left"
+          }
+        }
       ]
     }
   ]
