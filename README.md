@@ -39,6 +39,7 @@ Then start a new Claude Code session and say "turn my timelapses into reels", or
 | `scripts/pick_window.py` | Scores each clip for its steadiest stretch and writes frame strips |
 | `scripts/cut_source.py` | Cuts an exact-length, silent source clip |
 | `scripts/build_reel.py` | Builds and exports Palmier projects from a spec file |
+| `scripts/balance_text.py` | Picks line breaks so every line in a block is close to the same width |
 | `scripts/measure_text.py` | Measures text size and position on reference or rendered frames |
 | `scripts/safe_zone.py` | Instagram safe zone numbers and overlay |
 | `scripts/check_edges.py` | Checks camera moves never expose empty canvas |

@@ -83,6 +83,18 @@ For each reel it creates the project, imports the source, locks the canvas to 10
 
 Build one reel first, show the user the check frame, and adjust size, font and position with them before building the rest.
 
+### Design rule: balanced, symmetrical blocks
+
+Every centred text block should read as one even shape that feels complete: lines of near equal width, never a long line with a short stub hanging under it. A two-line block is the default for a sentence too long for one line, and both lines should be about the same width.
+
+- **Choose the line breaks by measured width, not by character count.** Run `python3 scripts/balance_text.py "THE USER'S TEXT" --font FONT --size SIZE` for every multi-line block. It measures each line with the real font file and picks the breaks where the widths are most even. Aim for an evenness of 0.85 or better (shortest line divided by longest); below 0.8 looks lopsided.
+- **Break between phrases, never inside one.** Never end a line on "a", "the", "of", "in", "your" and similar, and never split a number from the word it counts ("1,200 / subscribers"). The script penalises both.
+- **One line is complete on its own.** If a sentence fits on one line inside the safe width, keep it on one line rather than splitting it into uneven halves.
+- **A short second beat is sized to match.** When a short line appears after a longer one (a reveal, a punchline, a result), size it up so its width matches the line above: `--match "THE SHORT LINE"` prints that size. Cap it at about 1.6 times the hook size.
+- **Paragraphs balance separately.** In a two-paragraph card, balance each paragraph on its own.
+- **Only the line breaks and sizes change.** The words stay exactly as the user wrote them. If no break balances well, show the user the best two options and let them choose; never reword to make it fit.
+- Lists and left-aligned diary-style text are ragged by nature; this rule is for centred hooks, headers, closers and reveals.
+
 Images: turn a logo into a rounded square tile with `python3 scripts/make_icon_tile.py LOGO.png images/logo.png --bg "#FFFFFF" --scale 0.7` (or `--full` if it is already a square icon).
 
 ## Step 6: Check every reel
@@ -90,6 +102,7 @@ Images: turn a logo into a rounded square tile with `python3 scripts/make_icon_t
 - **Read every check frame.** The text must be readable over the brightest part of the shot. If not, strengthen the shadow, add a thin outline, or move the text.
 - **Safe zone.** On a 1080x1920 frame, keep text inside x 63 to 1014 and y 267 to 1535, and left of x 851 below y 1151 (Instagram's like, comment and share buttons), with a 16px margin. `python3 scripts/safe_zone.py overlay overlay.png` draws the unsafe area; lay it over a check frame to see it.
 - **No single word alone on a line.** If a line wraps and leaves one word on its own, ask the user where to break it.
+- **Balanced blocks.** Look at every centred block on the check frame: the lines should be close to the same width. If one looks lopsided, rerun `balance_text.py` and rebuild that reel.
 - **Camera moves.** `python3 scripts/check_edges.py PROJECT.palmier` checks the first and last frames for exposed canvas.
 
 ## Step 7: Export
